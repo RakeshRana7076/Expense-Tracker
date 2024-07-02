@@ -1,0 +1,187 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #8f8d8d;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-color 0.5s ease;
+  height: 100%; /* Ensure body covers entire viewport */
+}
+
+.background-image {
+  background-image: url('img.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%; /* Cover full height of viewport */
+  width: 100%; /* Cover full width of viewport */
+  position: fixed; /* Fixed positioning to cover entire page */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure background is behind other content */
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: transparent ;/* Transparent white background */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.5s ease, transform 0.5s ease;
+  position: relative; /* Ensure content is on top of background */
+  z-index: 1; /* Ensure content is on top of background */
+}
+
+h1 {
+  text-align: center;
+  color: #e6e6e6;
+  font-size: 32px;
+  margin-bottom: 20px;
+  transition: color 0.5s ease;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+form label,
+form input,
+form button {
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+form label {
+  color: aliceblue;
+}
+
+form input,
+form button {
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: #f7e9db 
+  
+}
+
+form button {
+  background-color: #20dcc9;
+  color: rgb(39, 34, 34);
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #f6fa3d;
+}
+
+#expenseList {
+  margin-top: 20px;
+}
+
+
+.expense-item {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+#totalExpenses {
+  margin-top: 20px;
+  text-align: center;
+ 
+}
+
+#totalExpenses h3 {
+  margin-bottom: 5px;
+  color: rgb(243, 246, 245);
+}
+
+#totalAmount {
+  font-size: 20px;
+  font-weight: bold;
+  color: #6c45b3;
+}
+#totalAmount:hover{
+ color: rgb(165, 165, 169);
+ transform: scale(1.5);
+}
+
+
+/* Styles for animated bubbles */
+.bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Behind other content */
+  pointer-events: none; /* Allows clicks to go through to elements beneath */
+  overflow: hidden; /* Ensure bubbles don't overflow */
+}
+
+@keyframes bubble-animation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bubble {
+  position: absolute;
+  background-color: rgba(248, 248, 248, 0.3); /* Semi-transparent white */
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  animation: bubble-animation 1s ease-in-out infinite; /* Adjust animation timing as needed */
+  pointer-events: none; /* Allows clicks to go through to elements beneath */
+}
+
+.bubble.burst {
+  animation: burst-animation 0.3s ease forwards; /* Burst animation duration */
+}
+
+@keyframes burst-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+/* Responsive adjustments using media queries */
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 90%; /* Adjust container width for smaller screens */
+  }
+
+  form {
+    flex-direction: column; /* Stack form elements vertically on smaller screens */
+  }
+
+  form label,
+  form input,
+  form button {
+    width: 50%; /* Full width for form elements on smaller screens */
+  }
+  
+  form input,
+  form button {
+    margin-bottom: 10px; /* Add spacing between form elements */
+  }
+}
